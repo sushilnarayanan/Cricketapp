@@ -3,15 +3,13 @@ import { AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const CricketScorecard = () => {
-  const [teams, setTeams] = useState([
+  const [teams, setTeams] = React.useState([
     { name: 'Team A', players: [], score: 0, wickets: 0, overs: 0 },
     { name: 'Team B', players: [], score: 0, wickets: 0, overs: 0 },
   ]);
-  const [currentTeam, setCurrentTeam] = useState(0);
-  const [currentBatsman, setCurrentBatsman] = useState('');
-  const [currentBowler, setCurrentBowler] = useState('');
-  const [showAlert, setShowAlert] = useState(false);
-
+  const [currentTeam, setCurrentTeam] = React.useState(0);
+  const [currentBatsman, setCurrentBatsman] = React.useState('');
+  const [showAlert, setShowAlert] = React.useState(false);
   const addPlayer = (teamIndex) => {
     const playerName = prompt(`Enter player name for ${teams[teamIndex].name}`);
     if (playerName) {
@@ -218,4 +216,4 @@ const CricketScorecard = () => {
   );
 };
 
-export default CricketScorecard;
+ReactDOM.render(<CricketScorecard />, document.getElementById('root'));
